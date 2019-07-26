@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            font-size: 50px;
+            height: 200px;
+            /* background: rgb(24, 143, 212); */
+            color: #fff;
+            /* padding: 30px; */
+            /* display: flex; */
+
+        }
+
+        header input {
+            /* margin-top: 100px; */
+            width: 90%;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <lz-header></lz-header> -->
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component('lz-header', {
+            props: ['color'],
+            data() {
+                return {
+                    msg: '未能获取地址',
+                    msg2: "<input text='text'>"
+                }
+            },
+            template: `
+                    <header :style="{background:color}">
+                    <div v-text=msg></div>
+                    <div v-html='msg2'></div>
+                    </header>
+                        `
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '未能获取地址',
+                msg2: "<input text='text'>"
+            },
+            template: `
+                    <div>
+                       <lz-header color="rgb(24, 143, 212)"></lz-header>
+                    </div>`,
+
+        });
+    </script>
+</body>
+
+</html>
